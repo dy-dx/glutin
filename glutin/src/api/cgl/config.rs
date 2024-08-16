@@ -104,10 +104,16 @@ impl Display {
         attrs.push(0);
 
         // Automatically pick the latest profile.
+        // let raw = [
+        //     NSOpenGLProfileVersion4_1Core,
+        //     NSOpenGLProfileVersion3_2Core,
+        //     NSOpenGLProfileVersionLegacy,
+        // ]
+        // https://github.com/rust-windowing/glutin/issues/1672
         let raw = [
-            NSOpenGLProfileVersion4_1Core,
             NSOpenGLProfileVersion3_2Core,
             NSOpenGLProfileVersionLegacy,
+            NSOpenGLProfileVersion4_1Core,
         ]
         .into_iter()
         .find_map(|profile| {
